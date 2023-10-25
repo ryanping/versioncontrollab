@@ -12,6 +12,20 @@ def encode(password):
             password_encoded += str(password_temp[index])
     return(password_encoded)
 
+
+def decode(encoded_password):
+    password_temp = list(encoded_password)
+    password_decoded = ""
+    for index in range(0, len(password_temp)):
+        password_temp[index] = int(password_temp[index])
+        password_temp[index] -= 3
+        if password_temp[index] <= -1:
+            password_decoded += str(password_temp[index] + 10)
+        else:
+            password_decoded += str(password_temp[index])
+    return password_decoded
+
+
 def main():
     user_continue = True
     while user_continue:
@@ -27,11 +41,11 @@ def main():
             user_password = encode(user_password)
             print("Your password has been encoded and stored!")
         elif user_menu_option == 2:
-            '''
-            Please write your decoding segment here
-            '''
+            decoded_password = decode(user_password)
+            print(f"The encoded password is {user_password}, and the original password is {decoded_password}.")
         elif user_menu_option == 3:
             break
+
 
 if __name__ == '__main__':
     main()
