@@ -1,4 +1,4 @@
-# Function passes in a String and returns a string but each digit is 
+# Function passes in a String and returns a string but each digit is incremented by 3 (unless it flows over)
 def encode(password):
     password_temp = list(password)
     password_encoded = ""
